@@ -1,0 +1,44 @@
+Node originees y filosofia
+1.- entorno de ejecución de JS fuera del navegador
+2.- creado en 2009
+3.- orientado en servidores
+4-. serivdores, herramientas, IoT
+5.- servidores asincronos
+6.- concurrente y monohilo
+7.- peticiones funcionan en cada nucleo de servidores
+8,. corre sobre UV8 2008-> corre el lenguaje a codigo maquina
+9.- todo funciona en base a modulos
+10.- orientado a eventos
+11. programación reactiva
+
+
+
+EventLoop - bucle de eventos
+
+1.-Proceso con un bucle que gestiona de forma asincrona, 
+todos los eventos de la app.
+2.- Los eventos llegan desde el event queue, se enlista en la cola de eventos
+3.- si lo puede resolver el event loop lo hace rapido, sino lo manda al thread pool
+4.- base de datos, archivos, funciones lentas funcionan asincronamente
+en thread pool
+5.- threadpool, para cada peticion genera un nuevo hilo en el procesador
+para que corran los procesos en paralelo y lo devuelve al event loop 
+
+
+Monohilo: implicaciones en diseño y seguridad
+1.- Si ocurre un error, el monohilo detiene el procesos
+2.- clave identificar potenciales errores para resolver
+
+Variables de entorno
+1.- Son variables que no deben estar en nuestr codigo:
+    llaves, claves, accesos, token
+2.- para acceder se le agrega el procesos
+    ejemplo = process.env.NombreDeVariable
+    Nombre de la variable en mayusculas, herencia linux
+3.-  se invocan desde terminal y se le spuede asignar valor ahí mismo
+    SET variable=valor ->linux
+    $env:NOMBRE_VARIABLE = VALOR; node archivo.js -> windows
+4.- para asignar un valor por defecto usr ||
+    ejemplo:     ejemplo = process.env.NOMBREVARIABLE 11 VALOR DEFAULT
+
+    
