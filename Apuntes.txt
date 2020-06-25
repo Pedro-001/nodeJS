@@ -42,3 +42,21 @@ Variables de entorno
     ejemplo:     ejemplo = process.env.NOMBREVARIABLE 11 VALOR DEFAULT
 
     
+Callbacks
+1.- Para generar un callback, a la funcion le tenemos que pasar un parametr
+por convención se usa la palabra callback (miCallback) y 
+se escribe la funcion dentro del bloque 
+ejemplo::
+function soyAsincrono(miCallback){
+    console.log("Hola, soy una funcion asincrona");
+    setTimeout(function(){
+        console.log("estoy siendo asincrono");
+        miCallback(); //Invocando funcion asincrona
+    },  1000);
+}
+
+console.log("iniciando proceso");
+soyAsincrono(function(){   //Invocando la funcion pasando el paramatro asincrono
+    console.log("Terminando proceso");
+});
+
