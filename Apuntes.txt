@@ -60,3 +60,110 @@ soyAsincrono(function(){   //Invocando la funcion pasando el paramatro asincrono
     console.log("Terminando proceso");
 });
 
+
+
+Promesas
+Es un metodo para convertir acciones asincronas en sincronas
+su estructura es la siguiente
+
+function NombreFuncion(parametros) {
+    return new Promise(function(resolve, reject){
+        setTimeout(function() {
+            CodigoParaEjectura
+            resolve(parametros)
+            reject(errores)
+        }, 100)
+    })
+}
+
+invocaciónn
+
+NombreFuncion(parametros)
+    .then(function)
+    .then(function)
+    .then(Function)
+    .catch(error => {
+        console.error(error)
+    })
+
+
+
+
+Async / Await
+
+Sintaxis nueva que permite definir una funcion en paralelo pero que funcionen
+secuencialmente -> Esperar a que funcion anterior termine antes de identificar
+
+async function NombreFuncion(parametros) {
+    return new Promise(function(resolve, reject){
+        setTimeout(function() {
+            CodigoParaEjectura
+            resolve(parametros)
+            reject(errores)
+        }, 100)
+    })
+}
+
+
+invocación
+Para invocar se neceista crear una funcion
+main donde contenga las funciones asincronas y
+poder invocarlas 
+
+async function main(){
+    await Hola('Pedro');
+    await hablar();
+    await hablar();
+    await hablar();
+    await Adios();
+}
+
+main();
+
+
+
+
+
+Globals
+Son modulos que vienen con nodejs
+intervalos, requerimientos, modulos
+exportaciones, procesos
+
+se recomienda no usarlos porque genera problemas
+
+
+
+File System
+modulo global, tipico uso, fs:
+permite acceder archivos de sistema, leer, escribir, modificar
+
+Estructura:
+const fs = require('fs')
+
+
+
+
+
+
+
+
+
+
+
+
+trycatch
+PAra capturar el error y evitar que el programa crashee
+si la funcion que se rompe es asincrona, internamente debe tener un trycatch
+ya que asincronamente no esta en el hilo principal al alcance del try   
+
+funcion NombreFuncion(){
+
+}
+
+try {
+    NombreFuncion()
+} catch(err){
+    console.error('se ha originaod un eror')
+    console.error(err.message) // Para saber el error
+ 
+}
